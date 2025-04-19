@@ -4,6 +4,7 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv/config';
 import cookieParser from 'cookie-parser';
 
+import connectDB from './config/mongodb.js'
 
 const app = express();
 const port = process.env.PORT || 4000;
