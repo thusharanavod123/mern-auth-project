@@ -5,13 +5,19 @@ import dotenv from 'dotenv/config';
 import cookieParser from 'cookie-parser';
 
 import connectDB from './config/mongodb.js'
+import authRoutes from './routes/authRoutes.js';
 
 const app = express();
 const port = process.env.PORT || 4000;
 
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors({credentials: true}));
+app.use(cors({credentials: true})); 
+
+//API ENDPOINTS
+
+app.get('/', (req, res) => res.send('api working'));
+app.use('/api/auth', authRoutes);
 
 
 app.get('/', (req, res) => res.send('api working hello'));
